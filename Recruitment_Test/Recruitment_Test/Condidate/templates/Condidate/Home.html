@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1><p>Welcome to Requirment Site</p></h1>
+    <h2><p>Click on Apply if you wanna Apply for the Opening. Login for Admin Only</p></h2>
+</head>
+<body>
+<form action="{% url 'Home' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <button type="submit" name="Apply" value="Apply">&nbsp;Apply</button>
+            <button type="submit" name="Login" value="Login">&nbsp;Login</button>
+        </form>
+</body>
+</html>

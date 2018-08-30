@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img.disabled {
+            opacity:0.5;
+         }
+    </style>
+</head>
+<body>
+<p align="center"><strong>Please click on Specific link to view the Candidate details and you the accept and reject the same</strong></p>
+<table border="1" align="center">
+
+    <tr>
+        <th>ID</th>
+        <th>Link To view the Details</th>
+        <th>Application status</th>
+    </tr>
+
+    {% for item in candidate %}
+    <tr>
+
+        <td><label>{{ item.id }}</label></td>
+        <td><a href="{% url 'detail' item.id %}">{{ item.user }}</a></td>
+        <td><label>Accepted</label></td>
+    </tr>
+    {% endfor %}
+
+    {% if success %}
+        {% for item in candi %}
+
+        <tr>
+
+        <td><label>{{ item.id }}</label></td>
+        <td><a href="{% url 'detail' item.id %}">{{ item.user }}</a></td>
+
+
+        {% if item.id ==  id_no  %}
+            <td><label>Accepted</label></td>
+        {% else %}
+            <td><label>Pending</label></td>
+        {% endif %}
+
+        </tr>
+    {% endfor %}
+
+   <center> <h2>Congratulations! <small>Application Got Accepted </small></h2>
+<div class='row'>
+    <div class='col-md-offset-3 col-md-6'>
+        <h3>Thanks Alot for applying </h3>
+        <p>Your application materials have been received and our being reviewed.
+
+    </div>
+</div>
+        </center>
+{% endif %}
+
+</table>
+</body>
+</html>
