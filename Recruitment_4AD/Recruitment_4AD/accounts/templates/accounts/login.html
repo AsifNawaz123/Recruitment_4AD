@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head %}
+{{ block.super }}
+
+{% include 'Condidate/_progress_style.html' %}
+
+{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    input[type=text] ,input[type=password],input[type=email]  {
+   	 	width: 30%;
+    	padding: 22px 60px;
+    	margin: 7px 60px;
+    	box-sizing: border-box;
+    	border: none;
+    	outline: none;
+    	border-bottom: 2px solid #0000002e;
+	}
+
+	.myButton {
+	background-color: #72f7e4;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 108px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 8px 89px;
+    text-decoration: none;
+    margin-left: 80px;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+    </style>
+</head>
+<body>
+<form method='post' enctype="multipart/form-data">
+    <p><big><center><b>Log in to your account</b></center></big></p><br>
+    <center>UserName : <input id="uname" name="uname" type="text" placeholder="Username" required /><br><br></center>
+    <center>Password :<input id="pass" name="pass" type="password" placeholder="password" required /><br><br></center>
+    <center><input type='submit' class="myButton" value='Login'></center>
+</form>
+
+</body>
+{% endblock %}

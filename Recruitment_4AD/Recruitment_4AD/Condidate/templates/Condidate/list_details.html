@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ block.super }}
+
+{% include 'Condidate/_progress_style.html' %}
+
+{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .div_1 {
+    border: 1px solid black;
+    margin: 25px 50px 75px 100px;
+    background-color: lightgreen;
+}
+
+	.myButton {
+	background-color: #72f7e4;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 108px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 8px 89px;
+    text-decoration: none;
+    margin-left: 80px;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+    </style>
+</head>
+<body>
+
+   <h2 style="color:DodgerBlue;">Congratulations! <small>Please Find out the Details given below </small></h2>
+    <h3 style="color:DodgerBlue;">Review the Details and Accept or Reject </h3><br><br>
+<div class='row'>
+    <div class='col-md-offset-3 col-md-6'>
+
+
+    </div>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+{% for item in details %}
+    <div class="div_1">
+    <br><br>
+    <label>First Name       : {{item.first_name}} </label><br>
+    <label>Last Name        : {{item.last_name}} </label><br>
+    <label>Email ID          : {{item.user}} </label><br>
+    <label>CitizenShip      : {{item.citizenship}} </label><br>
+    <label>Type of user     : {{item.user_type}} </label><br>
+    <label>Skype ID         : {{item.skype_id}} </label><br>
+    <label>Birth year     : {{item.birth_year}} </label><br>
+    <label>gender    : {{item.gender}} </label><br>
+    <label>education    : {{item.education}} </label><br>
+    <label>Education major    : {{item.education_major}} </label><br>
+    <label>Created Date     : {{item.created}} </label><br>
+    <label>ModificationDate : {{item.last_modified}} </label><br>
+    <label>TimeZone         : {{item.timezone}} </label>
+    </div>
+    {% endfor %}
+
+            <button type="submit" name="Accept" class="myButton" value="Accept">&nbsp;Accept</button>
+            <button type="submit" name="Reject" class="myButton" value="Reject">&nbsp;Reject</button>
+
+        </form>
+
+
+
+</body>
+
+{% endblock %}

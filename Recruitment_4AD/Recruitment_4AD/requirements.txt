@@ -1,0 +1,5 @@
+Django==1.11
+django-allauth
+django-countries==3.4.1
+Pillow
+django-bootstrap3==7.0.1
